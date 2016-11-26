@@ -18,7 +18,7 @@ module Id3Converter
   V2_ATTRS = %i(TALB TPE1 COMM TIT2 TCOM)
 
   def convert_dir(fdir, debug: true)
-    Dir.glob("#{fdir}/*.mp3").each do |fl|
+    Dir.glob(File.join(fdir, '**', '*.mp3')).each do |fl|
       update_tag_for fl, debug: debug
     end
   end
