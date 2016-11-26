@@ -1,7 +1,7 @@
 # id3_converter
 Converts ID3 Tags of .mp3 files from CP1251 codepage (Russian Cyrillic) to UTF-8.
 
-## to convert files inside of a dir
+## Convert _.mp3_ files inside of a dir (recursively)
 ```ruby
 dir = '/Volumes/Music/MySongs/'
 
@@ -14,5 +14,5 @@ Id3Converter.convert_dir dir, debug: false
 ```
 
 ---
-> Note that v1 tags can be removed if try to save non ASCII text into.
+> Note that v1 tags may be removed if try to save non ASCII text into.
 
