@@ -75,11 +75,15 @@ module Id3Converter
   end
 
   def get_frame_content(rt, attr)
-    fr = rt.get_frame(attr)
+    begin
+      fr = rt.get_frame(attr)
+    rescue ID3Tag::Tag::MultipleFrameError
+      fr = rt.get_frames(attr).first
+    end
     return if fr.nil?
 
     fc = fr.content
-    return if fc.empty?
+    return if fc.nil? || fc.empty?
 
     fc
   end
